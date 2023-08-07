@@ -1,0 +1,23 @@
+--- Makefile.mk	2023-08-07 18:20:20.131911432 +0200
++++ Makefile.mk	2023-08-07 18:06:12.912709663 +0200
+@@ -32,8 +32,10 @@
+ CEXTRA               += $(shell pkg-config --cflags jack)
+ RCEXTRA               =
+ INCLUDE_PATH          = -I. -Irtaudio/include
+-INCLUDE_PATH         += -I$(PREFIX)/include/wine
+-INCLUDE_PATH         += -I$(PREFIX)/include/wine/windows
++INCLUDE_PATH         += -I$(PREFIX)/include/wine/wine
++INCLUDE_PATH         += -I$(PREFIX)/include/wine/wine/windows
++INCLUDE_PATH         += -I$(PREFIX)/include/wine-staging-7.11/wine
++INCLUDE_PATH         += -I$(PREFIX)/include/wine-staging-7.11/wine/windows
+ INCLUDE_PATH         += -I$(PREFIX)/include/wine-development
+ INCLUDE_PATH         += -I$(PREFIX)/include/wine-development/wine/windows
+ INCLUDE_PATH         += -I/opt/wine-stable/include
+@@ -67,6 +69,7 @@
+ 			-L/usr/lib/wine \
+ 			-L/usr/lib/$(ARCH)-linux-gnu/wine \
+ 			-L/usr/lib/$(ARCH)-linux-gnu/wine-development \
++			-L/usr/lib/wine-staging-7.11/wine \
+ 			-L/opt/wine-stable/lib \
+ 			-L/opt/wine-stable/lib/wine \
+ 			-L/opt/wine-stable/lib$(M) \
